@@ -1,0 +1,85 @@
+#Randomowy współczynnik wspólny dla całego skryptu 
+
+def rollx():
+    import random
+    x = random.choice(range(1, 9))
+    return x
+
+def rolly():
+    import random
+    y = random.choice(range(0, 5))
+    return y
+
+while True:
+        try: 
+            how_much = int(input("Podaj wartość ataku: "))
+            if how_much >= 5:
+                att = how_much + rollx()
+                break
+            else: 
+                print("To za mało, tak nikogo nie zabijesz.")
+        except ValueError:
+            print("Musisz podać liczbę.")
+
+
+while True:
+    try:
+        opponent = input("Określ przeciwnika: ")
+        if opponent in ["GANGER", "ganger"]:
+            defence = 5
+            hit = 5 + rollx()
+            hp = 80
+            break
+        if opponent in ["MASZYNA", "maszyna"]:
+            defence = 10
+            hit = 20 + rollx()
+            hp = 100
+            break
+        if opponent in ["MUTANT", "mutant"]:
+            defence = 15
+            hit = 8 + rollx()
+            hp = 150
+            break
+        else:
+            print("Dostępni przeciwnicy to GANGER, MASZYNA i MUTANT.")
+    except ValueError:
+        print("Coś zjebałeś")
+
+
+
+class Player:
+
+    def pla(self):
+        self.hp = 100
+        self.defence = 10 + rolly()
+        self.hit = att
+
+    def opp(self):
+        self.hp = hp
+        self.defence = defence 
+        self.hit = hit 
+
+pla = Player()
+pla.pla()
+opp = Player()
+opp.opp()
+
+while True:
+    try:
+        while pla.hp > 0:
+            pla.hp = pla.hp - opp.hit 
+            print(opponent, " uderza cię za ", opp.hit, "\n Zostało ci ", pla.hp, " życia")
+        while opp.hp > 0:
+            opp.hp = opp.hp - pla.hit 
+            print("Uderzasz ", opponent, "za ", pl.hit, "\n Zostało mu ", opp.hp, " życia")
+        if pla.hp <= 0:
+            break
+            print("Przegrałeś.")
+        if opp.hp <= 0:
+            break
+            print("Gratulacje, zatłukłeś przeciwnika")
+
+    except:
+        print("Coś się popsuo przy ataku przeciwnika.")
+
+print("Koniec walki")
